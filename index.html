@@ -87,6 +87,8 @@
 
         #ben {
             right: 70px;
+            transform-origin: bottom;
+            animation: ben-defend 3s infinite;
         }
 
         #elias {
@@ -101,6 +103,14 @@
             70% { left: 470px; bottom: 140px; } /* Slamming */
             90% { left: 470px; bottom: 0; }     /* Landing */
             100% { left: 50px; bottom: 0; }
+        }
+
+        @keyframes ben-defend {
+            0%, 40% { transform: translateY(0) rotate(0deg); right: 70px; }
+            50% { transform: translateY(-80px) rotate(-10deg); right: 80px; } /* Jump to block */
+            70% { transform: translateY(-40px) rotate(90deg); right: 20px; }  /* Getting dunked on/knocked back */
+            85%, 95% { transform: translateY(0) rotate(90deg); right: 10px; } /* Flat on ground */
+            100% { transform: translateY(0) rotate(0deg); right: 70px; }      /* Reset */
         }
     </style>
 </head>
